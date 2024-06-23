@@ -1,15 +1,19 @@
 import { StyleSheet } from 'react-native';
-
-import EditScreenInfo from '@/components/EditScreenInfo';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import ChoreSelection from '@/app/ChoreSelection';
+import ChecklistScreen from '@/app/ChecklistScreen';
 import { Text, View } from '@/components/Themed';
+
+const Stack = createStackNavigator();
 
 export default function TabTwoScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab Two</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/two.tsx" />
-    </View>
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={ChoreSelection} />
+      <Stack.Screen name="Checklist" component={ChecklistScreen} />
+    </Stack.Navigator>
   );
 }
 
