@@ -1,43 +1,46 @@
 import * as React from 'react';
 import { View, Button, StyleSheet } from 'react-native';
-import { StyledButton } from '@/components/StyledButton';
 
-export default function ChoreSelection({ navigation }) {
-  const navigateToChecklist = (room) => {
-    const chores = {
-      'Living Room': [
+const rooms = [
+    { name: 'Main Floor', chores: [
         { id: '1', task: 'Sweep the floor', completed: false },
-        { id: '2', task: 'Dust the shelves', completed: false },
-        { id: '3', task: 'Take out the trash', completed: false },
-      ],
-      Kitchen: [
+        { id: '2', task: 'Dust the rug', completed: false },
+        { id: '3', task: 'Vacuum rug in living room', completed: false },
+      ] 
+    },
+    { name: 'Kitchen', chores: [
         { id: '1', task: 'Wash the dishes', completed: false },
         { id: '2', task: 'Clean the countertops', completed: false },
         { id: '3', task: 'Mop the floor', completed: false },
-      ],
-      Bedroom: [
-        { id: '1', task: 'Make the bed', completed: false },
-        { id: '2', task: 'Organize the closet', completed: false },
+      ]
+    },
+    { name: 'Upstairs', chores: [
+        { id: '1', task: 'Sweep upstairs', completed: false },
+        { id: '2', task: 'Sweep and mop upstairs bathroom', completed: false },
         { id: '3', task: 'Dust the furniture', completed: false },
-      ],
-      Bathroom: [
-        { id: '1', task: 'Clean the sink', completed: false },
-        { id: '2', task: 'Scrub the shower', completed: false },
-        { id: '3', task: 'Mop the floor', completed: false },
-      ],
-    };
+      ]
+    },
+    { name: 'Basement', chores: [
+        { id: '1', task: 'Remove clutter', completed: false },
+        { id: '2', task: 'Sweep the floor', completed: false },
+        { id: '3', task: 'etc', completed: false },
+      ]
+    },
+  ];
 
-    navigation.navigate('Checklist', { room, chores: chores[room] });
-  };
-
-  return (
-    <View style={styles.container}>
-      {['Living Room', 'Kitchen', 'Bedroom', 'Bathroom'].map((room, index) => (
-        <StyledButton key={index} title={room} onPress={() => navigateToChecklist(room)} />
-      ))}
-    </View>
-  );
-}
+export default function ChoreSelection({ navigation }) {
+    return (
+        <View style={styles.container}>
+          {rooms.map((room, index) => (
+            <Button
+              key={index}
+              title={room.name}
+              onPress={() => navigation.navigate('Checklist', { room: room.name, chores: room.chores })}
+            />
+          ))}
+        </View>
+      );
+    }
 
 const styles = StyleSheet.create({
   container: {
