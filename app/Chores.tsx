@@ -8,7 +8,7 @@ import { Text, View } from '@/components/Themed';
 
 const Stack = createStackNavigator();
 
-export default function TabTwoScreen() {
+export default function ChoresScreen() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Home" component={ChoreSelection} />
