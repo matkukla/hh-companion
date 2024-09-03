@@ -5,7 +5,7 @@ import { KeyboardAvoidingView, Platform, StyleSheet, TextInput, TouchableOpacity
 import { Text, View } from '@/components/Themed';
 import Task from '@/components/Task';
 
-export default function ModalScreen() {
+export default function ShoppingListScreen() {
   const [task, setTask] = useState();
   const [taskItems, setTaskItems] = useState([]);
 
@@ -53,7 +53,7 @@ export default function ModalScreen() {
         </KeyboardAvoidingView>
 
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <Task path="app/modal.tsx" />
+      <Task path="app/ShoppingList.tsx" />
 
       {/* Use a light status bar on iOS to account for the black space above the modal */}
       <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
