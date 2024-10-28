@@ -25,7 +25,7 @@ export default function MainMenu() {
         onPress={() => router.push('/Budget')}
       />
       <StyledButton
-        title="Contact List"
+        title="Contacts"
         onPress={() => router.push('/ContactList')}
       />
       <StyledButton
