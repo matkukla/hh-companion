@@ -1,2 +1,2 @@
 # hh-companion
-A companion app for those living in SPO Household
+A companion app designed to simplify household organization
